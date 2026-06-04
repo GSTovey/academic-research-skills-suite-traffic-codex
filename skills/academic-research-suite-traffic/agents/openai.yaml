@@ -1,0 +1,8 @@
+interface:
+  display_name: "Traffic Research Suite"
+  short_description: "ARS workflows adapted for traffic classification papers"
+  brand_color: "#0F766E"
+  default_prompt: "Use $academic-research-suite-traffic with ars-reviewer to review this encrypted traffic classification paper for leakage, baselines, and benchmark validity."
+
+policy:
+  allow_implicit_invocation: true
