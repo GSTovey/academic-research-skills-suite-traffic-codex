@@ -30,13 +30,15 @@ skills/academic-research-suite-traffic/
   manifest.json
   agents/openai.yaml
   references/traffic-classification-domain.md
+  references/traffic-classification-evidence-update-2026.md
   ars/
   codex/
 ```
 
 The overlay is derived from
 [GSTovey/Traffic-Classification-Paper-LLM-Wiki](https://github.com/GSTovey/Traffic-Classification-Paper-LLM-Wiki)
-at snapshot `bff8f9e283a37cb62ed8f28f7a7b6243463a8ee4`.
+at snapshot `4b527216102ef25819fa0773ab076d6166876175`, supplemented by the
+2026-11-03 deep-analysis coverage in the evidence update reference.
 
 The full PDF library and parsed paper corpus are not vendored. The skill carries
 a compact field guide for:
@@ -46,7 +48,8 @@ a compact field guide for:
 - website fingerprinting attacks and defenses
 - malicious/encrypted traffic detection and anomaly detection
 - VPN, Tor, DoH, QUIC, encrypted tunnels, app fingerprinting, and IoT traffic
-- few-shot, semi-supervised, open-set, domain-shift, and robustness evaluation
+- few-shot, semi-supervised, open-set, domain-shift, continual, and robustness
+  evaluation, including trace-level, multi-flow, and in-network deployment
 
 ## Install In Codex
 
@@ -159,6 +162,13 @@ following as high-risk claims unless the manuscript proves otherwise:
 - deep representation models compared only against weak baselines
 - micro F1 or accuracy reported without macro/per-class analysis
 - robustness claims without realistic network perturbations or environment shift
+
+For recent 2024--2026 literature, also load
+`skills/academic-research-suite-traffic/references/traffic-classification-evidence-update-2026.md`.
+It adds evidence-backed checks for observation/target alignment, open-world
+calibration, adaptive attack/defense, drift, trace-level semantics, and
+end-to-end deployment cost. Candidate records marked `pending_review` or
+`unknown` remain discovery evidence until their source locations are checked.
 
 These are not automatic rejection rules. They are mandatory review questions.
 

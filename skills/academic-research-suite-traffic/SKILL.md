@@ -5,15 +5,16 @@ description: >
   classification and security papers. Use for encrypted traffic analysis,
   traffic representation learning, website fingerprinting, malicious traffic
   detection, traffic foundation models, few-shot/open-set traffic learning,
-  peer review, literature review, paper writing, citation/integrity checks,
-  research-to-paper pipelines, experiment planning, benchmarking, statistical
-  interpretation, and reproducibility validation. Also use for general ARS
-  academic tasks and Claude-style ARS aliases such as /ars-plan, ars-plan,
-  /ars-reviewer, ars-reviewer, /ars-full, and ars-full. This skill vendors ARS
-  workflows under ars/ plus a traffic-classification domain overlay under
-  references/.
+  drift and adversarial robustness, online or trace-level analysis, in-network
+  deployment, peer review, literature review, paper writing, citation/integrity
+  checks, research-to-paper pipelines, experiment planning, benchmarking,
+  statistical interpretation, and reproducibility validation. Also use for
+  general ARS academic tasks and Claude-style ARS aliases such as /ars-plan,
+  ars-plan, /ars-reviewer, ars-reviewer, /ars-full, and ars-full. This skill
+  vendors ARS workflows under ars/ plus a traffic-classification domain overlay
+  under references/.
 metadata:
-  version: "0.1.9-traffic.1"
+  version: "0.1.9-traffic.2"
   upstream_suite: "academic-research-skills"
   domain_overlay: "traffic-classification"
   codex_adapter: true
@@ -30,7 +31,7 @@ personal research knowledge base.
 ## Versioning
 
 This Codex package is based on ARS Codex `0.1.9` with a local
-`traffic.1` overlay. Vendored ARS suite versions and the traffic-knowledge-base
+`traffic.2` overlay. Vendored ARS suite versions and the traffic-knowledge-base
 snapshot are tracked separately in `manifest.json`.
 
 ## First Rule
@@ -54,6 +55,8 @@ network traffic classification or adjacent security-research topics:
 - app fingerprinting, tunnel detection, anonymous traffic classification
 - traffic representation learning, traffic foundation models, pretraining,
   multimodal packet/payload/length/timing fusion, few-shot/open-set learning
+- temporal and environment drift, adaptive attack/defense, trace-level or
+  multi-flow observation, and in-network or line-rate deployment
 - datasets or benchmarks such as ISCX-VPN, ISCX-Tor, USTC-TFC, CSTNET-TLS 1.3,
   CipherSpectrum, CIC-IDS-2017, CIC-DDoS-2019, DF95, DataCon2021-p2, or
   NUDT_MobileTraffic
@@ -64,11 +67,19 @@ integrity, or experiment agent files. Treat the overlay as field-specific review
 and evidence guidance; it does not replace ARS security boundaries or citation
 verification.
 
+When the task uses recent 2024--2026 literature, the updated Traffic_Papers
+knowledge base, or claims about open-world performance, drift, adaptive
+robustness, trace-level semantics, or deployment cost, also read
+`references/traffic-classification-evidence-update-2026.md`. Keep its evidence
+map separate from the upstream ARS workflow and do not promote `pending_review`
+or `unknown` records to verified field consensus.
+
 For manuscript review in this domain, the overlay is mandatory. The review must
 explicitly check for data leakage, per-packet/per-flow split validity, SII
-shortcut learning, dataset encryption quality, baseline fairness, macro-vs-micro
-metrics, temporal/environment shifts, open-set assumptions, reproducibility, and
-claims that overstate what encrypted payload can support.
+shortcut learning, observation/target alignment, dataset encryption quality,
+baseline fairness, macro-vs-micro metrics, temporal/environment shifts,
+open-set calibration, adaptive robustness, end-to-end deployment cost,
+reproducibility, and claims that overstate what encrypted payload can support.
 
 ## Workflow Router
 

@@ -4,10 +4,12 @@ Use this reference whenever ARS is applied to network traffic classification,
 encrypted traffic analysis, website fingerprinting, malicious traffic detection,
 traffic representation learning, or traffic foundation models.
 
-Source snapshot: `GSTovey/Traffic-Classification-Paper-LLM-Wiki` at
-`bff8f9e283a37cb62ed8f28f7a7b6243463a8ee4` (2026-06-03). The source knowledge
-base contains 79 papers, structured Chinese paper notes, concept/method/task
-pages, comparison tables, claims, and contradiction records. This file is a
+Base snapshot: `GSTovey/Traffic-Classification-Paper-LLM-Wiki` at
+`4b527216102ef25819fa0773ab076d6166876175` (2026-10-12), with the
+2026-11-03 deep-analysis coverage and local working-tree evidence summarized in
+`traffic-classification-evidence-update-2026.md`. The source knowledge base
+contains structured Chinese paper notes, concept/method/task pages, comparison
+tables, claims, contradictions, and research-front records. This file is a
 compact domain overlay, not a full copy of the knowledge base.
 
 ## Field Scope
@@ -20,7 +22,8 @@ on:
 - website fingerprinting attacks and defenses
 - malicious/encrypted traffic detection and anomaly detection
 - VPN, Tor, DoH, QUIC, encrypted tunnels, app fingerprinting, IoT traffic
-- few-shot, semi-supervised, open-set, domain-shift, and robustness settings
+- few-shot, semi-supervised, open-set, domain-shift, continual, and robustness
+  settings, including trace-level, multi-flow, and in-network observation
 
 When a paper is in this scope, evaluate it against computer security/networking
 standards, not generic social-science review criteria.
@@ -49,6 +52,8 @@ Main method families:
 - multimodal fusion: payload bytes + packet length/direction/timing
 - Mamba/state-space, MoE, LLM-adapted traffic models
 - few-shot, meta-learning, open-set, test-time adaptation, label-noise learning
+- factorized decisions for composite targets, multiple-instance learning for
+  trace-level labels, and resource-aware data-plane inference
 
 ## High-Value Prior Evidence
 
@@ -82,6 +87,14 @@ questions and literature anchors, not as automatic verdicts.
   reordering, delay, padding, fragmentation, NAT, VPN/Tor/proxy changes,
   temporal drift, environment shift, and adversarial evasion should match the
   threat model.
+- Observation/target alignment is a separate validity check: identify the
+  observable outer layer, trace completeness, task unit, composite labels, and
+  whether a flat classifier is being compared fairly with factorized decisions.
+- Open-world, drift, and real-world claims require unseen classes or users,
+  temporal/environment transfer, calibration or rejection metrics, and an
+  explicit adaptation protocol; closed-set accuracy is insufficient.
+- Deployment claims must include parsing and feature-extraction cost, memory,
+  hardware, p50/p95 latency, throughput, and control/data-plane placement.
 
 ## Dataset Review Checklist
 
@@ -114,6 +127,9 @@ Common datasets and review posture:
 - Private TB-scale corpora: require release plan, reproducibility substitute,
   sampling description, ablations, and credible external validation.
 
+For recent evidence patterns and their source anchors, read
+`traffic-classification-evidence-update-2026.md`.
+
 ## Method Review Checklist
 
 Evaluate whether the paper clearly defines:
@@ -137,6 +153,8 @@ Strong objections:
 - no ablation separates payload/length/timing/header/SII contributions
 - no temporal/environment split despite deployment or robustness claims
 - open-set or unknown detection uses closed-set metrics only
+- “real-world” or “semantic” claims ignore observation-layer limits or label
+  composition
 - "real-time" claims lack throughput, latency, memory, and hardware details
 
 ## Reviewer Persona Guidance
@@ -201,8 +219,13 @@ Suggested research-gap families:
 - Whether modern encrypted payload carries learnable signal beyond length/timing.
 - How to build reliable modern encrypted-traffic benchmarks.
 - When multimodal traffic foundation models outperform expert-feature baselines.
-- Robust website fingerprinting under adaptive attack/defense and drift.
-- Few-shot/open-set malicious traffic detection under realistic deployment shift.
+- When multimodal gains survive alignment cost, strict splits, and protocol drift.
+- Robust website fingerprinting under adaptive, multi-tab, many-to-many, and
+  drift-aware attack/defense.
+- Few-shot/open-set malicious traffic detection with calibration under realistic
+  deployment shift.
+- How factorized decisions and trace-level models behave when only an outer
+  observation is available.
 - Explainable and lightweight traffic classification for operational security.
 
 ## Experiment Planning Guidance
@@ -216,6 +239,9 @@ For `experiment-agent`, prefer experiments that isolate confounders:
 - macro F1, balanced accuracy, per-class recall, AUROC/AUPRC for imbalanced data
 - shallow expert-feature baselines vs deep/foundation models under identical splits
 - robustness to packet loss, duplication, reordering, padding, delay, and drift
+- unknown-class rejection, calibration, cross-environment transfer, adaptive
+  attack/defense, and composite-target factorization when those claims apply
+- end-to-end preprocessing and data-plane cost, not only neural inference time
 - code/data reproducibility: seeds, preprocessing scripts, feature extraction,
   model checkpoints, and hardware/runtime records
 

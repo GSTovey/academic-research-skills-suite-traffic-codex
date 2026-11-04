@@ -1,9 +1,9 @@
 {
   "name": "academic-research-suite-traffic",
-  "adapter_version": "0.1.9-traffic.1",
+  "adapter_version": "0.1.9-traffic.2",
   "version_file": "VERSION",
   "generated_for": "codex",
-  "generated_date": "2026-06-01",
+  "generated_date": "2026-11-04",
   "source_repositories": [
     {
       "name": "academic-research-skills",
@@ -43,7 +43,7 @@
     {
       "name": "Traffic-Classification-Paper-LLM-Wiki",
       "url": "https://github.com/GSTovey/Traffic-Classification-Paper-LLM-Wiki.git",
-      "commit": "bff8f9e283a37cb62ed8f28f7a7b6243463a8ee4",
+      "commit": "4b527216102ef25819fa0773ab076d6166876175",
       "included_paths": [
         "summarized domain profile only",
         "00-dashboard/project-overview.md",
@@ -53,9 +53,10 @@
         "08-comparisons/dataset-comparison-table.md",
         "08-comparisons/method-comparison-table.md",
         "09-claims/claims-index.md",
-        "09-claims/contradictions.md"
+        "09-claims/contradictions.md",
+        "12-research-fronts/"
       ],
-      "packaging_note": "Full PDFs, parsed markdown, and paper notes are not vendored; the Codex skill carries a compact overlay at references/traffic-classification-domain.md."
+      "packaging_note": "Full PDFs, parsed markdown, and paper notes are not vendored; the Codex skill carries compact domain and 2026 evidence overlays under references/."
     }
   ],
   "excluded_patterns": [
@@ -95,6 +96,7 @@
     "vendored_root": "skills/academic-research-suite-traffic/ars",
     "codex_adapter_root": "skills/academic-research-suite-traffic/codex",
     "domain_overlay": "skills/academic-research-suite-traffic/references/traffic-classification-domain.md",
+    "domain_evidence_update": "skills/academic-research-suite-traffic/references/traffic-classification-evidence-update-2026.md",
     "optional_full_runtime_manifest": "skills/academic-research-suite-traffic/codex/full-runtime-manifest.json"
   },
   "runtime_notes": [
@@ -115,6 +117,7 @@
     "Cross-model API behavior is disabled by default and requires explicit user request."
     ,
     "This traffic variant loads references/traffic-classification-domain.md for encrypted traffic classification, traffic representation learning, website fingerprinting, malicious traffic detection, and related network-security research tasks.",
-    "The traffic overlay is derived from GSTovey/Traffic-Classification-Paper-LLM-Wiki and is intended as field-specific review and evidence guidance, not a full vendored copy of the user's knowledge base."
+    "Recent-literature tasks additionally load traffic-classification-evidence-update-2026.md for observation-layer, open-world, drift, adaptive robustness, trace-level, and deployment-cost guidance.",
+    "The traffic overlays are derived from GSTovey/Traffic-Classification-Paper-LLM-Wiki and the user's 2026 deep-analysis coverage; they are intended as field-specific review and evidence guidance, not a full vendored copy of the user's knowledge base."
     ]
 }

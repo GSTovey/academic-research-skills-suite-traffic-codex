@@ -5,6 +5,11 @@ All notable changes to the Codex package are documented here.
 ## Unreleased
 
 ### Added
+- Added a 2026 traffic-classification evidence update reference synthesized
+  from the updated Traffic_Papers corpus and the 2024--2026 top-venue deep-
+  analysis coverage. It adds operational checks for observation-layer
+  alignment, open-world calibration, drift, adaptive attack/defense,
+  trace-level semantics, and end-to-end deployment cost.
 - Added an optional Codex full-runtime adapter profile under
   `skills/academic-research-suite/codex/`, including deterministic route
   planning, Codex agent-team templates, a disabled-by-default hook pack, and
@@ -15,6 +20,11 @@ All notable changes to the Codex package are documented here.
 - Added Codex security boundaries for untrusted research inputs, cross-model
   consent, local adapter filesystem handling, and fixed-host bibliographic API
   lookups.
+
+### Changed
+- Updated the traffic overlay provenance to the 2026-10-12 knowledge-base
+  commit and marked the adapter as `0.1.9-traffic.2`.
+- Kept pending or unknown literature records out of field-consensus guidance.
 
 ## [0.1.9] - 2026-06-01
 
