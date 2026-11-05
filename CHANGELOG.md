@@ -2,6 +2,23 @@
 
 All notable changes to the Codex package are documented here.
 
+## [0.1.9-traffic.3] - 2026-11-04
+
+### Changed
+- Grounded the traffic overlay in selected primary-text passages from 22 papers,
+  recording source and passage hashes, section/line locators, mechanisms,
+  evidence limits, and derived skill rules in a portable ledger.
+- Added conditional guidance for header shortcuts, transductive graphs,
+  filtering, noisy labels, multi-teacher supervision, trace-level labels,
+  causal prefixes, stopping policies, and low-base-rate false alarms.
+- Replaced blanket checklist and model-family judgments with claim-specific
+  controls. Writing-only requests do not initiate experiments.
+- Clarified that the corpus includes uncommitted local sources; neither the
+  base commit nor L3 metadata alone verifies all evidence. Upstream ARS remains
+  pinned and KB consensus records are unchanged.
+- Made optional adapter manifest paths relative to the traffic skill so its
+  validation does not silently depend on the uninstalled generic sibling.
+
 ## Unreleased
 
 ### Added

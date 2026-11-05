@@ -1,0 +1,729 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-04",
+  "corpus_repository": "https://github.com/GSTovey/Traffic-Classification-Paper-LLM-Wiki",
+  "corpus_base_commit": "4b527216102ef25819fa0773ab076d6166876175",
+  "corpus_state": "local_working_tree_with_uncommitted_sources",
+  "scope": "22 selected primary-text passage reviews; not a full-corpus reread or independent reproduction",
+  "verification_definition": "source_passage_checked verifies the recorded mechanism and boundary in the supplied parsed source; it does not verify publication metadata, replicate results, or change the KB evidence ledger",
+  "records": [
+    {
+      "id": "E01",
+      "title": "SoK: Decoding the Enigma of Encrypted Network Traffic Classifiers",
+      "source_path": "02-parsed-markdown/2025-S&P-SoK_Decoding_the_Enigma_of_Encrypted_Network_Traffic_Classifiers.md",
+      "source_sha256": "2dde70ae98fa5a348a5c8db8c23f2db3d1ba43d65acf36c8facb1a1bde651ec8",
+      "locators": [
+        {
+          "section": "§5.3.1–5.3.3",
+          "line_start": 376,
+          "line_end": 392,
+          "passage_sha256": "c9003d5399bfbbe1353bdadfff5d15c2dd3df6548089428e31dc073f8b5bf1c0"
+        },
+        {
+          "section": "§5.3.7–§6",
+          "line_start": 452,
+          "line_end": 509,
+          "passage_sha256": "dce457b28e85dbfceebbfdf2410f39d9ab579efa0cffac17eb9786d5736078bd"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "用 ET-BERT、YaTC 在两套 TLS 1.3 数据的抽选类别上做字段遮蔽，区分显式标识、上下文、时间字段和加密内容的影响。",
+      "evidence_boundary": "系统化梳理覆盖的分类器数量不等于遮蔽实验实际运行的模型数量；遮蔽结果属于选定数据和模型，不能推出所有表征学习无效。",
+      "derived_skill_rule": "先记录协议、密码套件、粒度和遮蔽对照；按样本组划分，再区分可部署信号与采集环境捷径。"
+    },
+    {
+      "id": "E02",
+      "title": "The Sweet Danger of Sugar: Debunking Representation Learning for Encrypted Traffic Classification",
+      "source_path": "02-parsed-markdown/2025-SIGCOMM-The_Sweet_Danger_of_Sugar_Debunking_Representation_Learning_for_Encrypted_Traffic_Classification.md",
+      "source_sha256": "f4c545d348fd78034138d6ff65a8938d6d17e3e2059820063fc737b24ae081fb",
+      "locators": [
+        {
+          "section": "§4.1",
+          "line_start": 300,
+          "line_end": 324,
+          "passage_sha256": "cc6c965f9e8efa86b16a6e5143202edfa996f4c86ded41e14cf60cd9f6d94757"
+        },
+        {
+          "section": "§6.1",
+          "line_start": 409,
+          "line_end": 437,
+          "passage_sha256": "271a3b35629cf16d5ee5ba9714128e90d07f989be5eee12cd1b0bd1b6217608f"
+        },
+        {
+          "section": "§6.1 header/shallow comparisons",
+          "line_start": 480,
+          "line_end": 516,
+          "passage_sha256": "8b86387b50df940171181aa1b1e7d72657ff6d53229ec7f9434d949b57376986"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "把划分单位与编码器是否冻结分开比较，并用包头手工特征的浅层模型检验表征的实际增益。",
+      "evidence_boundary": "per-flow 与 per-packet、冻结与微调同时改变时，差值不能全归于某一个因素；浅层模型同样可能利用显式或隐式流标识。",
+      "derived_skill_rule": "涉及预训练贡献时比较随机初始化、冻结探测和完整微调；匹配输入与预算。冻结编码器表现差不是端到端模型无效的充分条件。"
+    },
+    {
+      "id": "E03",
+      "title": "MM4flow: A Pre-trained Multi-modal Model for Versatile Network Traffic Analysis",
+      "source_path": "02-parsed-markdown/2025-CCS-MM4flow__A_Pre-trained_Multi-modal_Model_for_Versatile_Network_Traffic_Analysis.md",
+      "source_sha256": "3e13550bd76c876b0ebca8d81773eabbdd20f304d633ad2200092d203f629dc2",
+      "locators": [
+        {
+          "section": "§3.5",
+          "line_start": 966,
+          "line_end": 982,
+          "passage_sha256": "f81ad0bab70fa171361e5602900d49ed904d8fdb64f6a3d197ce67d70ae7727e"
+        },
+        {
+          "section": "§4.1",
+          "line_start": 1082,
+          "line_end": 1092,
+          "passage_sha256": "7b01f63d4146ef72474cd0d6fb45d6a5f3595ad57e61829ca25edb5eb14a8d21"
+        },
+        {
+          "section": "§4.3",
+          "line_start": 1121,
+          "line_end": 1129,
+          "passage_sha256": "93c26de397c89206698eac4caa2abdc7917286ae072a64a6c8f302d5341a10a9"
+        },
+        {
+          "section": "§5",
+          "line_start": 1272,
+          "line_end": 1285,
+          "passage_sha256": "5b742c4eee6eb30bab5d39a20bb5d3737666164dc1ea943325031bff5d62a89e"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "分别预训练字节流与包长序列，再在下游微调时融合；作者说明直接跨模态注意力可能破坏单模态表示。",
+      "evidence_boundary": "§4.3 的泛化主要通过标注量变化衡量；Browser 任务极少标签时存在弱于部分基线的情况。不能把样本效率直接表述为跨环境不变性。",
+      "derived_skill_rule": "将预训练收益、融合收益、标签效率和跨域迁移拆成独立问题；保留单模态结果、从头训练对照和融合成本。"
+    },
+    {
+      "id": "E04",
+      "title": "HF-Transformer: A Non-Pretrained Encrypted Network Traffic Classification Model Based on Packet Header Fields",
+      "source_path": "02-parsed-markdown/2026-INFOCOM-HF-Transformer__A_Non-Pretrained_Encrypted_Network_Traffic_Classification_Model_Based_on_Packet_Header_Fields.md",
+      "source_sha256": "10b7122d5fb6cc8967199376a1752e23e4af6b650d98fd2e46a90a481199dc98",
+      "locators": [
+        {
+          "section": "§II-C / §III",
+          "line_start": 127,
+          "line_end": 150,
+          "passage_sha256": "68a202496a945e08850878fbaf77cbffad516e2cf938a1e9e777eb0d08b91d8a"
+        },
+        {
+          "section": "§IV",
+          "line_start": 183,
+          "line_end": 219,
+          "passage_sha256": "cac3e14e747f2054b13c1501adaabb67de0f96281547dda95dec192689c18cc8"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "从少量包头字段训练非预训练 Transformer；所选字段包括 IP 长度、TTL 以及 TCP Seq、Ack、Window。",
+      "evidence_boundary": "可见包头不天然免于捷径：Seq/Ack 可能携带隐式流标识，TTL/Window 也可能反映来源环境。该机制与 E01/E02 的审计要求必须同时考虑。",
+      "derived_skill_rule": "把 HF-Transformer 纳入非预训练包头路线候选，同时要求原始会话分组、Seq/Ack 重编码或消融、跨来源验证；不得仅凭其排名宣告预训练无用。"
+    },
+    {
+      "id": "E05",
+      "title": "GenETC: Dynamic Graph-enhanced Fine-tuning for Encrypted Traffic Classification",
+      "source_path": "02-parsed-markdown/2026-TDSC-GenETC__Dynamic_Graph-enhanced_Fine-tuning_for_Encrypted_Traffic_Classification.md",
+      "source_sha256": "927763badfc5a31e0eb7fd295b43528712f3d7e0740983033f12c2dbc61d524b",
+      "locators": [
+        {
+          "section": "§IV-C",
+          "line_start": 125,
+          "line_end": 131,
+          "passage_sha256": "03d76b7682d2524dc0e8c334c864c2a83afa50d1b4bda4f132c3dbc0477e795c"
+        },
+        {
+          "section": "§V-A",
+          "line_start": 284,
+          "line_end": 290,
+          "passage_sha256": "af630c243d84dc7cd89b395cb5015b9d1bc8c9f8e8beb2fb38df313b6240480c"
+        },
+        {
+          "section": "§V-G / §VI",
+          "line_start": 408,
+          "line_end": 424,
+          "passage_sha256": "2b113730ac69672a99131f3e3b2451fedfdb635664657b6757093dc889e3e180"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "用 IP/端口构建流交互图，流表示作为边属性，并在微调中更新语义与图特征；主设置明确使用全数据的传导式图。",
+      "evidence_boundary": "全图可见性与新端点归纳部署不同；作者承认端点不重叠时下降、Tor 场景图收益有限。耗时统计含图更新而不含初始建图。",
+      "derived_skill_rule": "单独记录传导/归纳设定、测试节点和边可见性、是否接触未来流、端点标识、建图成本。声明传导式使用不等于标签泄漏，但不能外推在线归纳性能。"
+    },
+    {
+      "id": "E06",
+      "title": "PacketLoom: A Unified Preprocessing Framework for Multi-Modal Network Traffic Analysis",
+      "source_path": "02-parsed-markdown/2026-INFOCOM-PacketLoom__A_Unified_Preprocessing_Framework_for_Multi-Modal_Network_Traffic_Analysis.md",
+      "source_sha256": "a54ec081f4910bcf734348d414a1bea7699c0808aefb2d1b87c492a96df5e9cf",
+      "locators": [
+        {
+          "section": "§II-A",
+          "line_start": 59,
+          "line_end": 70,
+          "passage_sha256": "b75e7165f048184c647c058ea518a51984c1c3bac6530e55176fd68fd8c719fd"
+        },
+        {
+          "section": "§III-A/B",
+          "line_start": 169,
+          "line_end": 187,
+          "passage_sha256": "98016abfc7778b697e3b55aaca6497472ca22e3c3f77bcf7ce762feedaad6be5"
+        },
+        {
+          "section": "§III-D/E",
+          "line_start": 211,
+          "line_end": 228,
+          "passage_sha256": "3f5a83393261e4cf733fb469605c027ddb76980c02897eb4beb72d34f2858eca"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "声明式配置将预处理定义与执行分开；惰性加载、减少中间磁盘读写改善迭代效率，并对 ET-BERT 与 YaTC 流程做复现比较。",
+      "evidence_boundary": "YaTC 计时只覆盖相同预切分输入的光栅化阶段；ET-BERT 比较覆盖不同处理范围，且过滤改变样本组成。单数据集的复现不能证明所有模态严格等价。",
+      "derived_skill_rule": "记录解析、过滤、分组、采样、导出配置及样本保留率；分别评价语义一致性和工程速度。缓存、I/O、内存交换与计时边界必须对齐。"
+    },
+    {
+      "id": "E07",
+      "title": "PP-OpenNet: Privacy-Preserved Open Set Classification for Network Traffic",
+      "source_path": "02-parsed-markdown/2026-INFOCOM-PP-OpenNet__Privacy-Preserved_Open_Set_Classification_for_Network_Traffic.md",
+      "source_sha256": "b26087e2080b8dff137c8caba197065bd326003611532c03d6f1420411f43b3d",
+      "locators": [
+        {
+          "section": "§III-A",
+          "line_start": 50,
+          "line_end": 58,
+          "passage_sha256": "1d01d0cbaef86faf95a41f728e95fa499135cf505afb89dfa97d06907669f92b"
+        },
+        {
+          "section": "§III-C/D / §IV-A/B",
+          "line_start": 75,
+          "line_end": 101,
+          "passage_sha256": "68d0806807a84e8ac474bf537450677ad3599865c453ec957544887b6a981d67"
+        },
+        {
+          "section": "§IV-D",
+          "line_start": 116,
+          "line_end": 128,
+          "passage_sha256": "41ef060fdd33e2015ac32b0477b15c6f20558b7b4c28a4876854a02acd355ed1"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "从时间戳和包长构造多尺度特征，经 GRU 融合，使用原型相关的开放集判别；区分目标应用、训练背景与测试未知应用。",
+      "evidence_boundary": "测试未知样本占比为 50%；回溯切片可使用此前历史包；同一学习率用于所有模型不自动保证公平。无载荷输入也不是形式化隐私保证。",
+      "derived_skill_rule": "同时报告已知类正确识别与未知拒绝指标（如 OSCR），核对 trace 隔离、历史包可用性、背景重叠和验证集调参预算；另做部署基率与固定阈值评估。"
+    },
+    {
+      "id": "E08",
+      "title": "DualGuard: An Adaptive Detection Framework for Concurrent Malicious and Normality Drifts in Network Traffic",
+      "source_path": "02-parsed-markdown/2026-TIFS-DualGuard__An_Adaptive_Detection_Framework_for_Concurrent_Malicious_and_Normality_Drifts_in_Network_Traffic.md",
+      "source_sha256": "24ca9d7822d455f06ad16ae24ae01f1d76b498d041b6101f7a37febd70ada944",
+      "locators": [
+        {
+          "section": "§IV-A",
+          "line_start": 123,
+          "line_end": 139,
+          "passage_sha256": "7efd9482c7ee3bf1dfe460d4344322e40aed041114020baec40901b69a04c5d3"
+        },
+        {
+          "section": "§V-E / §VI-A",
+          "line_start": 325,
+          "line_end": 347,
+          "passage_sha256": "310ba9674bcadbd557228f435a024da833be141795e2ab48c55fdfae1e3d4c5e"
+        },
+        {
+          "section": "§VII",
+          "line_start": 497,
+          "line_end": 511,
+          "passage_sha256": "f3def7973e002454f5b0bb494257461b8fdab5e26c8e07b092540493cd89b9cd"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "区分恶意类别变化与正常背景变化；对漂移告警聚类、选代表样本交由专家标注，再传播标签并更新模型。",
+      "evidence_boundary": "ISP 验证采用提取后的流记录离线回放；经筛选的 Suricata/ET 命中是运营参考而非独立完整真值，ET 阴性仍可能含漏检。",
+      "derived_skill_rule": "拆开良性与恶意漂移来源，计入专家标签、更新延迟和标注预算；明确规则覆盖及测试时是否适配。提取后吞吐不能充当链路实时吞吐。"
+    },
+    {
+      "id": "E09",
+      "title": "Is the Data Really Noisy? Rethinking Traffic Filtering for Encrypted Traffic Classification",
+      "source_path": "02-parsed-markdown/2026-TDSC-Is_the_Data_Really_Noisy_Rethinking_Traffic_Filtering_for_Encrypted_Traffic_Classification.md",
+      "source_sha256": "698d1a02802f114482b73a8ab71cb5f999af59ff2a203aa739cb90585a7e2892",
+      "locators": [
+        {
+          "section": "§III-A",
+          "line_start": 80,
+          "line_end": 92,
+          "passage_sha256": "628b1187e0285db83d6bc621e801caf7ab744215ec8f0d807402d8f4509914aa"
+        },
+        {
+          "section": "§III-F",
+          "line_start": 166,
+          "line_end": 184,
+          "passage_sha256": "95f862b33e1d05fdb53bd48684b3574e0310bd4849a05426c44afbb4dcf18398"
+        },
+        {
+          "section": "§IV-B",
+          "line_start": 233,
+          "line_end": 241,
+          "passage_sha256": "83235368d3ce466d8c2cd938f3225f4a16fcca56d29ef7a884c1a5cacc9a04ac"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "研究过滤在开发/部署阶段、流量类别和策略三个维度的作用；TraCare 利用同活动流量的关联增强表示并采用免过滤推理。",
+      "evidence_boundary": "短流或辅助协议可能携带活动信息；训练与部署过滤不一致会改变分布。该结论不等于应保留损坏包，也不否定有任务依据的过滤。",
+      "derived_skill_rule": "每个过滤步骤写明目的、作用阶段、被剔除标签/来源及覆盖代价；与 E06 对照时区分工程格式验证、无关流排除和语义相关流删除。"
+    },
+    {
+      "id": "E10",
+      "title": "Fighting the Enemy Within: Traffic Semantics-Driven Framework Against Noisy Labels for Robust Traffic Classification",
+      "source_path": "02-parsed-markdown/2026-TON-Fighting_the_Enemy_Within__Traffic_Semantics-Driven_Framework_Against_Noisy_Labels_for_Robust_Traffic_Classification.md",
+      "source_sha256": "55c4301c0c2ed3df5604f0d84a266c9291c8b545b5fbfe9e8276a58de36c51e1",
+      "locators": [
+        {
+          "section": "§III-A",
+          "line_start": 46,
+          "line_end": 54,
+          "passage_sha256": "8f2431de62de726f9a636467eea910ed3d9bc59bcffccf58545c0297876df5d3"
+        },
+        {
+          "section": "§III-B",
+          "line_start": 100,
+          "line_end": 110,
+          "passage_sha256": "772ca5b128b66d1fec98a27be4f68c6a964aee3a9b2be33b8f1a0468870b7af1"
+        },
+        {
+          "section": "§IV-A",
+          "line_start": 165,
+          "line_end": 177,
+          "passage_sha256": "f0e3d15e0a09f98241eb9f94f7d962af60a036c174c2dc40b4556688a6d599c0"
+        },
+        {
+          "section": "§IV-C",
+          "line_start": 261,
+          "line_end": 280,
+          "passage_sha256": "b9a3de65ccec6b6d54b389f806fdc07e41a22e88f2d390f23b22726e6f80bc7f"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "FLOWREFINER+ 先用自监督表征检测可能错标的流，再基于置信度纠正标签，最后训练跨粒度分类器。",
+      "evidence_boundary": "实验同时区分合成标签噪声、类别相关噪声与真实错标数据。模型同意度或高置信度不是独立真值，表征中的来源偏差可能被纠错过程保留。",
+      "derived_skill_rule": "将标签噪声、无关背景、观测扰动和分布漂移分开；保存纠正前后标签及依据，评价各类样本保留率和独立测试上的纠错效果。"
+    },
+    {
+      "id": "E11",
+      "title": "Two Heads Are Better Than One: Models-to-Model Learning for Encrypted Traffic Analysis",
+      "source_path": "02-parsed-markdown/2026-TIFS-Two_Heads_Are_Better_Than_One__Models-to-Model_Learning_for_Encrypted_Traffic_Analysis.md",
+      "source_sha256": "77474111c165e6669647896162cbe5dfa97d825a77ac38035e6b18ba1164db53",
+      "locators": [
+        {
+          "section": "§III-B",
+          "line_start": 77,
+          "line_end": 93,
+          "passage_sha256": "dff057291c7b44f8012454ed8012d9ea52c4ee02cb604de74281b8fd16a6f3cf"
+        },
+        {
+          "section": "§IV-C",
+          "line_start": 214,
+          "line_end": 224,
+          "passage_sha256": "7167968001c3405339b522cc2a0585432a5e405e61e12b1d8f81e79f82d03d9c"
+        },
+        {
+          "section": "§VI-A/B",
+          "line_start": 478,
+          "line_end": 493,
+          "passage_sha256": "4f700ced5baa38431c4757ee6aaf2fb2c78ddb46a0845fca69b855fc2efac5dd"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "M2ML 把异构教师特征文本化，结合教师的验证表现和样本级共识融合监督，由学生学习。",
+      "evidence_boundary": "学生阶段无需手工标签不表示整条流程没有标签成本；教师质量和验证标签仍是来源。文本化对原始字节顺序、包边界及深层表示可能丢失结构。",
+      "derived_skill_rule": "分别记录教师训练、可信度估计与学生训练的数据访问；保留教师误差、冲突及校准分析，防止把教师一致预测当独立标签验证。"
+    },
+    {
+      "id": "E12",
+      "title": "Two Heads Are Not Better Than One: Continual Learning From Multiple Models for Encrypted Traffic Analysis",
+      "source_path": "02-parsed-markdown/2026-TIFS-Two_Heads_Are_Not_Better_Than_One__Continual_Learning_From_Multiple_Models_for_Encrypted_Traffic_Analysis.md",
+      "source_sha256": "d537f4d5efe8dc191dff869839166b1310d161d3217c78cd84c6c0125845836f",
+      "locators": [
+        {
+          "section": "§III-B",
+          "line_start": 106,
+          "line_end": 128,
+          "passage_sha256": "0382ff14923800833a6f702c174f5c59f5abb8efad1f8bd51746b3e10ff80d29"
+        },
+        {
+          "section": "§III-C",
+          "line_start": 168,
+          "line_end": 182,
+          "passage_sha256": "6701b19fea6d9861a3e5e78b7d6b9aa894e2375852d0385a0e6fac368e159f50"
+        },
+        {
+          "section": "§IV-E / §V",
+          "line_start": 450,
+          "line_end": 505,
+          "passage_sha256": "65e66ab0a8d1fcb5317e96c472c626dbeef75d079385700edb10fee5e91a3837"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "DBCL 从各任务教师逐步获取监督，利用快/慢 LoRA 分支、回放缓冲和知识对齐平衡学习与保留。",
+      "evidence_boundary": "教师噪声会降低学生效果，回放保留历史样本且有成本。它研究跨任务持续吸收，与 E11 的同一样本多教师仲裁不是标题上的直接反证关系。",
+      "derived_skill_rule": "比较教师访问、任务顺序、回放预算、旧任务遗忘和新任务学习；知识保留同时对教师一致率与独立真值准确率报告。"
+    },
+    {
+      "id": "E13",
+      "title": "Tracegram: Framing Trace-Level Traffic Analysis with Temporally-Aware Multiple Instance Learning",
+      "source_path": "02-parsed-markdown/2026-USENIX-Tracegram__Framing_Trace-Level_Traffic_Analysis_with_Temporally-Aware_Multiple_Instance_Learning.md",
+      "source_sha256": "0e8cef7de2c71fa48f030754a97db1ab9e4e4906c53c212d9235a447283f1e4b",
+      "locators": [
+        {
+          "section": "§2.2",
+          "line_start": 85,
+          "line_end": 91,
+          "passage_sha256": "11c592351bc3b0d23b7d07920b6dbeaf7db0930e584c5ea4f69187a7f0d7fb86"
+        },
+        {
+          "section": "§3.2",
+          "line_start": 113,
+          "line_end": 125,
+          "passage_sha256": "0290fafb2ac1f6371f974ae24f23621f2211e99ec6b00df8fcdf6d7a8c6b31ec"
+        },
+        {
+          "section": "§3.5",
+          "line_start": 145,
+          "line_end": 153,
+          "passage_sha256": "302a5ffdd4ac728df85e2ca3c7dacdb9d31cc67ebfd976f7b8a4a4ff79c9f9fa"
+        },
+        {
+          "section": "§6",
+          "line_start": 397,
+          "line_end": 403,
+          "passage_sha256": "897975e240e3537b63e138d5bc3c5fe59d6efdd8bbdf637f47ffe9854797061f"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "把 trace 视为 bag、流视为 instance，以 bag 标签监督；在流表征后通过 Bi-LSTM 与注意力聚合，保留跨流顺序。",
+      "evidence_boundary": "bag 标签不等于每条流真值；注意力是模型归因而非因果验证。Bi-LSTM 使用袋内后续流，完整 trace 结果不能自动外推到持续在线决策；随机干扰验证不等于自适应攻击鲁棒。",
+      "derived_skill_rule": "先定义袋边界和可见流集合，再评价缺失流、背景注入与归因；在线迁移须声明当前窗口闭合或改用前缀可用的聚合。"
+    },
+    {
+      "id": "E14",
+      "title": "Robust and Reliable Early-Stage Website Fingerprinting Attacks via Spatial-Temporal Distribution Analysis",
+      "source_path": "02-parsed-markdown/2024-CCS-Robust_and_reliable_early-stage_website_fingerprinting_attacks_via_spatial-temporal_distribution_analysis.md",
+      "source_sha256": "0f4c8e5f2300e25134e245418c48f37ac5f3de03c419e4dfa076247c1f51d669",
+      "locators": [
+        {
+          "section": "§5.3 / Algorithm 2",
+          "line_start": 404,
+          "line_end": 435,
+          "passage_sha256": "e66ce3ed9fe26e1ff4fb34be9785ea0810f4fdb8a877cb144892acbe399bc4d5"
+        },
+        {
+          "section": "§6.3",
+          "line_start": 546,
+          "line_end": 552,
+          "passage_sha256": "6136d93cd8f945e828969c7b9e242b5d6ca22bd4c0cbf5c7a7e9ed44628ecc02"
+        },
+        {
+          "section": "§7",
+          "line_start": 625,
+          "line_end": 637,
+          "passage_sha256": "8926eef744d16b4bf5723851738ac9ac8bbb5914cbebb30bfeb749832303da70"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "Holmes 定时尝试识别，将当前前缀映射到特征空间，与站点中心和半径比较；证据不足时继续收包。",
+      "evidence_boundary": "提前分类算法与按最终加载比例截断的离线曲线是不同证据。讨论中使用守卫节点 circuit ID 的扩展依赖更强观察能力。",
+      "derived_skill_rule": "记录等待、拒绝、终止和最大时限；保留全体候选分母，报告完整停止策略的累计误报、检出率和延迟。外部被动观察者不能默认获得 circuit ID。"
+    },
+    {
+      "id": "E15",
+      "title": "COUNTMAMBA: A Generalized Website Fingerprinting Attack via Coarse-Grained Representation and Fine-Grained Prediction",
+      "source_path": "02-parsed-markdown/2025-S&P-Countmamba__A_Generalized_Website_Fingerprinting_Attack_via_Coarse-Grained_Representation_and_Fine-Grained_Prediction.md",
+      "source_sha256": "dfa2218282fdbe6df6c1d0f0bbbd0f553d2f838d243ddb304657168cfa13b52f",
+      "locators": [
+        {
+          "section": "§5.2",
+          "line_start": 455,
+          "line_end": 474,
+          "passage_sha256": "23e03214d207507926ecdaf8b5dd3a6995ef236b5d3c1dd756a46f3d862935ea"
+        },
+        {
+          "section": "§6.3",
+          "line_start": 601,
+          "line_end": 613,
+          "passage_sha256": "90b83ec5c1fe5a8d370d846c9dddfb0e7fb5df2380d17b51647cc265d8da56e4"
+        },
+        {
+          "section": "Appendix E",
+          "line_start": 902,
+          "line_end": 908,
+          "passage_sha256": "0a158d8821ddbeca90138c66d0fb7d668813ccaf56d6d87833cc1d647f156710"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "以时间窗计数表示流量，对各窗施加监督并聚合已到达窗口的预测；因果卷积与状态空间模块支持状态复用。",
+      "evidence_boundary": "加载比例曲线仍依赖事后完整 trace 时长；状态可复用是计算性质，不自动证明在线停止规则校准或乱序到达下有效。",
+      "derived_skill_rule": "区分模型因果性、增量状态复用与停止决策三项；核对归一化、窗口边界和时间戳语义是否仅使用决策时已见信息。"
+    },
+    {
+      "id": "E16",
+      "title": "Swallow: A Transfer-Robust Website Fingerprinting Attack via Consistent Feature Learning",
+      "source_path": "02-parsed-markdown/2025-CCS-Swallow__A_Transfer-Robust_Website_Fingerprinting_Attack_via_Consistent_Feature_Learning.md",
+      "source_sha256": "380b86c312a3ea5c9ca44045d670ecdd5230dd94b74b7ea3d376342a4d72d89a",
+      "locators": [
+        {
+          "section": "§3",
+          "line_start": 193,
+          "line_end": 195,
+          "passage_sha256": "d303c740ac4c2f54024e35ee8127e9547cfb62395e91797b1702165b9e30b870"
+        },
+        {
+          "section": "§5.1",
+          "line_start": 406,
+          "line_end": 412,
+          "passage_sha256": "2a8b52fb9690ff74282c54f83e24fc82841bdd6a325298c1e5627e496048d996"
+        },
+        {
+          "section": "§6.3",
+          "line_start": 636,
+          "line_end": 646,
+          "passage_sha256": "dd6dd03d2a18d4f4b7c4f3c22e46d1616837b2408b9df9c8220f14d86d417a06"
+        },
+        {
+          "section": "§7",
+          "line_start": 700,
+          "line_end": 708,
+          "passage_sha256": "ac34e926abf121fcd28ada7bcc60152e2d6c2fc838188bec60bcd316b2a4da68"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "CIF 依据完整 trace 加载时间调整计数区间，结合增强与少样本训练提升跨网络条件迁移。",
+      "evidence_boundary": "按全时长构造的表示在流终止前不可直接取得；防御评估使用模拟变换，且作者承认 Palette 等防御下仍有限。实验聚焦单标签页主页。",
+      "derived_skill_rule": "把完整 trace 迁移作为离线证据；前缀迁移需换用已观测时间或独立时长估计。分开报告模拟/实装防御、主页/子页、单/多标签页。"
+    },
+    {
+      "id": "E17",
+      "title": "Towards Practical Few-shot Multi-tab Website Fingerprinting",
+      "source_path": "02-parsed-markdown/2026-USENIX-Towards_Practical_Few-shot_Multi-tab_Website_Fingerprinting.md",
+      "source_sha256": "1406dc458ab9a82748ae5803b6a871d023ac8807e6f4ed31a4fd10b19f461a73",
+      "locators": [
+        {
+          "section": "§3",
+          "line_start": 99,
+          "line_end": 105,
+          "passage_sha256": "b7b2d098398a2f9aef0b85abe20e194fba8c632220f31d7908a575ef5be466b6"
+        },
+        {
+          "section": "§5.3",
+          "line_start": 312,
+          "line_end": 318,
+          "passage_sha256": "e02d0e9d948a880ac312b07a6a83ff1bc290cceccba1960ea46aa6d2036d4b99"
+        },
+        {
+          "section": "§5.7",
+          "line_start": 385,
+          "line_end": 391,
+          "passage_sha256": "206f8fb178bb5c9dd3f6afc93cd0171a2aef3b5fdec9b04d7c0a331a28182897"
+        },
+        {
+          "section": "§6",
+          "line_start": 452,
+          "line_end": 458,
+          "passage_sha256": "3e81f89de41a1555edab04026dc1ba16fb496854ee2e5eed878ffea097df9d84"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "MMF 以支持集驱动的特征重加权和目标存在性判别处理混合标签页，并支持少量新站点样本适配。",
+      "evidence_boundary": "P@k、未知标签页数下的存在性判断、开放世界误报对应不同量；作者说明仍缺少人类参与采集的完整端到端基准。合成混合与真实并发不是同一个证据源。",
+      "derived_skill_rule": "记录基础/新类别、每类 shots、混合方式、并发数量和时间交叠；报告新类学习、旧类遗忘、集合扩张成本及目标存在性误报。"
+    },
+    {
+      "id": "E18",
+      "title": "CertTA: Certified Robustness Made Practical for Learning-Based Traffic Analysis",
+      "source_path": "02-parsed-markdown/2025-USENIX-CertTA__Certified_Robustness_Made_Practical_for_Learning-Based_Traffic_Analysis.md",
+      "source_sha256": "79b8801a8eaced91b9f1b072a5471e5f81a1e5601f6d37091d96dc992d45baef",
+      "locators": [
+        {
+          "section": "§3/4",
+          "line_start": 148,
+          "line_end": 154,
+          "passage_sha256": "0e4140ad6c6133baf383bac2d7cdecb22edb77e63fcf1874b8ce55978d4631e5"
+        },
+        {
+          "section": "§5.1",
+          "line_start": 493,
+          "line_end": 508,
+          "passage_sha256": "ec3bd351f4b12e2de96d60eac2858756417038f2d549c6f4087d818b9f450b69"
+        },
+        {
+          "section": "§6",
+          "line_start": 597,
+          "line_end": 605,
+          "passage_sha256": "154e7cbd6e0cf44eabbf615a457a53169240a724d0676d489601bf8575d33822"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "通过抽样包并对长度和间隔加噪生成平滑样本，聚合基分类器预测，推导特定离散与加性扰动区域内的鲁棒性保证。",
+      "evidence_boundary": "保证绑定平滑分类器、扰动定义和统计置信条件；区域外攻击、协议语义改变、未知背景或真实线路性能不由该证书自动涵盖。",
+      "derived_skill_rule": "认证准确率、经验逃逸率、干净样本精度与拒绝率分别报告；说明扰动预算、平滑样本数、置信水平及平滑推理的总成本。"
+    },
+    {
+      "id": "E19",
+      "title": "Beyond RTT: An Adversarially Robust Two-Tiered Approach for Residential Proxy Detection",
+      "source_path": "02-parsed-markdown/2026-NDSS-Beyond_RTT__An_Adversarially_Robust_Two-Tiered_Approach_for_Residential_Proxy_Detection.md",
+      "source_sha256": "25f4b7c16c215ff1ad41ffb0487033306c019ae761184a1cfcb3636f00710e78",
+      "locators": [
+        {
+          "section": "§III",
+          "line_start": 72,
+          "line_end": 82,
+          "passage_sha256": "53f9a4a7dc5ed2c1ebbff254a94968cda2550dce75d44de2538b69dcf2fda052"
+        },
+        {
+          "section": "§VI-A",
+          "line_start": 177,
+          "line_end": 183,
+          "passage_sha256": "6f1bec4e8ec674a580362f01182294cae99c34f9157d89e4eff642b95828d682"
+        },
+        {
+          "section": "§VI-B",
+          "line_start": 227,
+          "line_end": 233,
+          "passage_sha256": "28d38e08a5b708eba521b4887e27be9e8e26cdb136e428db03e56c91eb5e7a71"
+        },
+        {
+          "section": "§VIII",
+          "line_start": 329,
+          "line_end": 333,
+          "passage_sha256": "260bd41a472109d79dc3949dbe9f91c897d32a3b95eb2b62a2b3cbcc8b307b64"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "轻量特征与 CorrTransform 构成互补检测路线，利用代理网关流与转发流的关联抵抗部分时间扰动。",
+      "evidence_boundary": "ISP 与内容服务商的可见集合不同；关联检测需要相应流的观察权限。采集集中于一个提供商，其他提供商上的实证验证留作后续。",
+      "derived_skill_rule": "先核对单观察点是否拥有所需两侧或多流证据；固定各模型前缀与候选关联范围，避免把多视角检测能力移植成单向外层检测结论。"
+    },
+    {
+      "id": "E20",
+      "title": "Huma: Censorship Circumvention via Web Protocol Tunneling with Deferred Traffic Replacement",
+      "source_path": "02-parsed-markdown/2026-NDSS-Huma__Censorship_Circumvention_via_Web_Protocol_Tunneling_with_Deferred_Traffic_Replacement.md",
+      "source_sha256": "438af9e815292a309238a6a28046cd8272befeac5f6ab4117063de2fd1fc0c2e",
+      "locators": [
+        {
+          "section": "§III-A",
+          "line_start": 105,
+          "line_end": 109,
+          "passage_sha256": "9dd68b585ccd9ad28ad785cac253e91bd29bc01b1c345202f540df87d0b549cb"
+        },
+        {
+          "section": "§IV-B",
+          "line_start": 228,
+          "line_end": 234,
+          "passage_sha256": "c17f998f023dc8d08cea86206db4628d18415a3db59b553bc3b8ed6f56192ab0"
+        },
+        {
+          "section": "§V-D",
+          "line_start": 398,
+          "line_end": 404,
+          "passage_sha256": "b1a1bbe0b9e8c7d4ea324a58509f9fc1b9bd425a1a57e19324aa34d16123f848"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "通过 Web 协议隧道和延迟内容替换承载通信，并在指定 DW/目标页面配置下比较正常访问与 Huma 访问。",
+      "evidence_boundary": "有限地点、页面大小配置和检测器下难区分属于特定实验；目标页更大时需额外抓取，不可直接推出任意用户活动分布下不可检测。",
+      "derived_skill_rule": "评估隧道或防御时对齐页面、活动、路由及负类来源，检查自适应观察者；保持吞吐、时延、带宽与可检测性联合权衡。"
+    },
+    {
+      "id": "E21",
+      "title": "SketchFeature: High-Quality Per-Flow Feature Extractor Towards Security-Aware Data Plane",
+      "source_path": "02-parsed-markdown/2025-NDSS-SketchFeature__High-Quality_Per-Flow_Feature_Extractor_Towards_Security-Aware_Data_Plane.md",
+      "source_sha256": "74b59815097e195b1f7d5dd05825affaf75103d2e16d44f0d39c095f56516052",
+      "locators": [
+        {
+          "section": "§III-B",
+          "line_start": 98,
+          "line_end": 102,
+          "passage_sha256": "a9140a75c9a686977e1689d555d9dc6534c7b16c77a44511c875a4925a194eed"
+        },
+        {
+          "section": "§III-C",
+          "line_start": 146,
+          "line_end": 152,
+          "passage_sha256": "5265a1c30141fcb46e39cf6590316b2e3f98087a30aa21f5a23f30b845e1acb7"
+        },
+        {
+          "section": "§V",
+          "line_start": 426,
+          "line_end": 435,
+          "passage_sha256": "1eb07ce62403ad103544900b09b7e8b1600a040bc0955b1a22fc524d8ed9b075"
+        },
+        {
+          "section": "§VI",
+          "line_start": 533,
+          "line_end": 537,
+          "passage_sha256": "369b191dc7a04ffb5fc9afd6b128e78e563ad1a2861ad141d5e5014d02043552"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "量化、虚拟 sketch 与成员测试共同提取逐流分布特征，成员测试用于抑制虚假解码。",
+      "evidence_boundary": "数据平面特征提取不代表所有后续分类也在数据平面；作者讨论现有网内模型与三阶特征的兼容限制，特征质量还受内存和负载影响。",
+      "derived_skill_rule": "分别测试特征恢复误差与下游检测损失，报告 hash 冲突、量化粒度、并发流、SRAM/流水级与模型位置。"
+    },
+    {
+      "id": "E22",
+      "title": "NESTTOR: Detecting Tor-over-Proxy Traffic with Factorized Decisions",
+      "source_path": "02-parsed-markdown/2026-myPaper-TNSM-NestTor_Detecting_Tor-over-Proxy_Traffic_with_Factorized_Decisions.md",
+      "source_sha256": "e118bd225fb3605e6787cd97d4c56eef5340529aaedf6e0581f5a51a743d1adc",
+      "locators": [
+        {
+          "section": "§III-A",
+          "line_start": 178,
+          "line_end": 196,
+          "passage_sha256": "11c498c81bf8929c1d28773ef6be022a45e18f227108a608a033a459b0c3ad29"
+        },
+        {
+          "section": "§IV-B",
+          "line_start": 306,
+          "line_end": 320,
+          "passage_sha256": "45b48e7343ed9597e3292c84a21ccc03606efb306d1570cb44d8c1b29277a583"
+        },
+        {
+          "section": "§IV-C",
+          "line_start": 356,
+          "line_end": 372,
+          "passage_sha256": "6eaf87eab14facb7892fdd3e4cbc451e77b747f17115d0c34d9a8434010a1ee5"
+        },
+        {
+          "section": "§VI-E",
+          "line_start": 614,
+          "line_end": 616,
+          "passage_sha256": "cc6f240b36d98f9c58b0797a05ffbb51d97de4b55ada1ee93c635cb778a30480"
+        }
+      ],
+      "evidence_status": "source_passage_checked",
+      "checked_date": "2026-11-04",
+      "mechanism": "将 ToP 定义为代理存在与 Tor 存在的合取；独立训练代理门控和代理条件下的 Tor 检测器，通过 AND 决策。",
+      "evidence_boundary": "目标代理的独立 Pure Proxy 负类可参与校准，因此与完全不接触目标域不同；负类分位数校准修正位置/尺度，不恢复排序。论文适用完整流离线处理。",
+      "derived_skill_rule": "保留四类标签真值表，区分条件检测与端到端系统；与同表示、同分类器族的平面结构比较。分别申明目标负类、无标签目标数据与目标正类访问。"
+    }
+  ]
+}

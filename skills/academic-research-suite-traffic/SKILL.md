@@ -14,7 +14,7 @@ description: >
   vendors ARS workflows under ars/ plus a traffic-classification domain overlay
   under references/.
 metadata:
-  version: "0.1.9-traffic.2"
+  version: "0.1.9-traffic.3"
   upstream_suite: "academic-research-skills"
   domain_overlay: "traffic-classification"
   codex_adapter: true
@@ -31,7 +31,7 @@ personal research knowledge base.
 ## Versioning
 
 This Codex package is based on ARS Codex `0.1.9` with a local
-`traffic.2` overlay. Vendored ARS suite versions and the traffic-knowledge-base
+`traffic.3` overlay. Vendored ARS suite versions and the traffic-knowledge-base
 snapshot are tracked separately in `manifest.json`.
 
 ## First Rule
@@ -67,19 +67,30 @@ integrity, or experiment agent files. Treat the overlay as field-specific review
 and evidence guidance; it does not replace ARS security boundaries or citation
 verification.
 
-When the task uses recent 2024--2026 literature, the updated Traffic_Papers
-knowledge base, or claims about open-world performance, drift, adaptive
-robustness, trace-level semantics, or deployment cost, also read
-`references/traffic-classification-evidence-update-2026.md`. Keep its evidence
-map separate from the upstream ARS workflow and do not promote `pending_review`
-or `unknown` records to verified field consensus.
+For traffic tasks involving representation choice, preprocessing, open-set
+detection, drift, online prefixes, trace labels, multi-teacher learning,
+adversarial robustness, or deployment cost, consult the topic table in
+`references/traffic-classification-evidence-update-2026.md` and read the relevant
+evidence entries. This reference contains 22 source-passage reviews; it is not a
+claim of full-corpus review or experimental reproduction. Resolve precise source
+versions and locations through `references/traffic-evidence-ledger.json` only
+when needed. `source_passage_checked` does not upgrade the knowledge base's
+`pending_review` records or establish field consensus.
 
-For manuscript review in this domain, the overlay is mandatory. The review must
-explicitly check for data leakage, per-packet/per-flow split validity, SII
+Before recommending a model or protocol, identify the observation point, sample
+and label unit, available information at decision time, grouping/split, and
+target-domain data access from the supplied material. Match the mechanism to
+those conditions. For writing-only tasks, use these checks to preserve claim
+scope; do not initiate experiments or demand a new intake form.
+
+For manuscript review in this domain, the overlay is mandatory. Assess the
+applicable evidence for data leakage, per-packet/per-flow split validity, SII
 shortcut learning, observation/target alignment, dataset encryption quality,
 baseline fairness, macro-vs-micro metrics, temporal/environment shifts,
 open-set calibration, adaptive robustness, end-to-end deployment cost,
 reproducibility, and claims that overstate what encrypted payload can support.
+Report findings at the requested scope. A missing detail is an uncertainty to
+resolve; severity follows its demonstrated effect on the central claim.
 
 ## Workflow Router
 

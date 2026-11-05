@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "adapter": {
-    "name": "academic-research-suite-codex-full-runtime",
-    "package": "academic-research-suite",
+    "name": "academic-research-suite-traffic-codex-full-runtime",
+    "package": "academic-research-suite-traffic",
     "profile": "full-runtime",
     "default_enabled": false,
     "enabled_when": {
@@ -13,12 +13,12 @@
     "fallback_when_disabled": "Use the root SKILL.md router and run ARS agent prompts inline in the current Codex conversation."
   },
   "paths": {
-    "root_skill": "skills/academic-research-suite/SKILL.md",
-    "vendored_root": "skills/academic-research-suite/ars",
-    "adapter_root": "skills/academic-research-suite/codex",
-    "hook_pack": "skills/academic-research-suite/codex/hooks/hooks.json",
-    "quality_gate_runner": "skills/academic-research-suite/codex/scripts/ars_codex_quality_gates.py",
-    "runtime_planner": "skills/academic-research-suite/codex/scripts/ars_codex_full_runtime.py"
+    "root_skill": "SKILL.md",
+    "vendored_root": "ars",
+    "adapter_root": "codex",
+    "hook_pack": "codex/hooks/hooks.json",
+    "quality_gate_runner": "codex/scripts/ars_codex_quality_gates.py",
+    "runtime_planner": "codex/scripts/ars_codex_full_runtime.py"
   },
   "commands": [
     {"aliases": ["/ars-plan", "ars-plan"], "recipe": "ars/commands/ars-plan.md", "workflow": "academic-paper", "mode": "plan", "model_hint": "sonnet"},

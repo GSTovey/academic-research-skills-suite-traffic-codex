@@ -1,6 +1,6 @@
 {
   "name": "academic-research-suite-traffic",
-  "adapter_version": "0.1.9-traffic.2",
+  "adapter_version": "0.1.9-traffic.3",
   "version_file": "VERSION",
   "generated_for": "codex",
   "generated_date": "2026-11-04",
@@ -45,7 +45,10 @@
       "url": "https://github.com/GSTovey/Traffic-Classification-Paper-LLM-Wiki.git",
       "commit": "4b527216102ef25819fa0773ab076d6166876175",
       "included_paths": [
-        "summarized domain profile only",
+        "summarized domain guidance and selected evidence cards only"
+      ],
+      "packaging_note": "Full PDFs, parsed markdown, and paper notes are not vendored; the Codex skill carries compact domain and 2026 evidence overlays under references/.",
+      "consulted_paths": [
         "00-dashboard/project-overview.md",
         "00-dashboard/research-map.md",
         "00-dashboard/open-questions.md",
@@ -54,9 +57,11 @@
         "08-comparisons/method-comparison-table.md",
         "09-claims/claims-index.md",
         "09-claims/contradictions.md",
-        "12-research-fronts/"
+        "12-research-fronts/",
+        "selected 03-paper-notes/ records",
+        "selected 02-parsed-markdown/ passages listed in references/traffic-evidence-ledger.json"
       ],
-      "packaging_note": "Full PDFs, parsed markdown, and paper notes are not vendored; the Codex skill carries compact domain and 2026 evidence overlays under references/."
+      "snapshot_state": "base commit plus uncommitted local sources; exact hashes in domain evidence ledger"
     }
   ],
   "excluded_patterns": [
@@ -97,7 +102,8 @@
     "codex_adapter_root": "skills/academic-research-suite-traffic/codex",
     "domain_overlay": "skills/academic-research-suite-traffic/references/traffic-classification-domain.md",
     "domain_evidence_update": "skills/academic-research-suite-traffic/references/traffic-classification-evidence-update-2026.md",
-    "optional_full_runtime_manifest": "skills/academic-research-suite-traffic/codex/full-runtime-manifest.json"
+    "optional_full_runtime_manifest": "skills/academic-research-suite-traffic/codex/full-runtime-manifest.json",
+    "domain_evidence_ledger": "skills/academic-research-suite-traffic/references/traffic-evidence-ledger.json"
   },
   "runtime_notes": [
     "Claude Code agent-team wording is adapted by SKILL.md into Codex inline role-prompt usage.",
@@ -114,10 +120,19 @@
     "The Codex package carries scripts/codex_v3_6_7_block_baseline.json so first-time vendored trees can enforce v3.6.7 block byte-equivalence before Git history contains the upstream manifest.",
     "The Codex audit wrapper is patched to run on macOS stock Bash 3.2+ instead of requiring Bash 4+.",
     "ARS v3.10.0 plus the release-manifest alignment commit is the tracked upstream content; Claude/plugin loader files under .claude, .claude-plugin, and .github remain intentionally excluded.",
-    "Cross-model API behavior is disabled by default and requires explicit user request."
-    ,
+    "Cross-model API behavior is disabled by default and requires explicit user request.",
     "This traffic variant loads references/traffic-classification-domain.md for encrypted traffic classification, traffic representation learning, website fingerprinting, malicious traffic detection, and related network-security research tasks.",
-    "Recent-literature tasks additionally load traffic-classification-evidence-update-2026.md for observation-layer, open-world, drift, adaptive robustness, trace-level, and deployment-cost guidance.",
-    "The traffic overlays are derived from GSTovey/Traffic-Classification-Paper-LLM-Wiki and the user's 2026 deep-analysis coverage; they are intended as field-specific review and evidence guidance, not a full vendored copy of the user's knowledge base."
-    ]
+    "Traffic tasks select relevant evidence entries for preprocessing, representations, teacher supervision, observation units, open-set calibration, online stopping, robustness and system cost.",
+    "The domain update records selected source passages and derived guidance; it neither replicates experiments nor upgrades the source knowledge base consensus status."
+  ],
+  "domain_evidence_snapshot": {
+    "date": "2026-11-04",
+    "ledger": "references/traffic-evidence-ledger.json",
+    "reviewed_papers": 22,
+    "review_depth": "selected method, evaluation and limitation passages in supplied primary-text parses",
+    "corpus_state": "local_working_tree_with_uncommitted_sources",
+    "independent_reproduction": false,
+    "publication_metadata_reverified": false,
+    "kb_consensus_records_modified": false
+  }
 }

@@ -6,8 +6,10 @@ traffic representation learning, or traffic foundation models.
 
 Base snapshot: `GSTovey/Traffic-Classification-Paper-LLM-Wiki` at
 `4b527216102ef25819fa0773ab076d6166876175` (2026-10-12), with the
-2026-11-03 deep-analysis coverage and local working-tree evidence summarized in
-`traffic-classification-evidence-update-2026.md`. The source knowledge base
+local working-tree sources reviewed on 2026-11-04. The 22 selected primary-text
+passage reviews are summarized in `traffic-classification-evidence-update-2026.md`
+and pinned by hashes and locators in `traffic-evidence-ledger.json`.
+The base commit alone does not reproduce this working-tree snapshot. The source knowledge base
 contains structured Chinese paper notes, concept/method/task pages, comparison
 tables, claims, contradictions, and research-front records. This file is a
 compact domain overlay, not a full copy of the knowledge base.
@@ -27,6 +29,21 @@ on:
 
 When a paper is in this scope, evaluate it against computer security/networking
 standards, not generic social-science review criteria.
+
+## Establish the Task Before Choosing a Method
+
+Recover from the supplied material: observation point and direction; visible
+outer/inner protocol; packet/flow/session/trace decision unit; label provenance;
+data available at each decision time; split groups; and permitted target-domain
+labels, unlabeled traffic, or calibration samples. Ask only if an unresolved
+field changes the requested result. Keep fixed-cohort benchmarks, open-set
+recognition, low-base-rate alerting, and online stopping as distinct settings.
+
+Use task-matched mechanisms: per-flow sequences for flow evidence, MIL for bag
+labels, graph models when relational context is available, factorized decisions
+for composite targets, and stateful models for incremental processing. Compare
+with a suitable simple baseline. Architecture names and venue rank do not
+establish novelty or superiority.
 
 ## Canonical Research Map
 
@@ -66,20 +83,25 @@ questions and literature anchors, not as automatic verdicts.
 - SII shortcut learning: strong identifying information such as MAC, IP, ports,
   TCP sequence/ack numbers, timestamps, and flow identifiers can dominate model
   performance. Papers must disclose whether these fields are present, removed,
-  anonymized, or masked.
+  anonymized, or masked. Also inspect identifiers used to build graphs or split
+  groups. A legitimately available operational field is not automatically label
+  leakage; test whether the claimed transfer survives changed identities.
 - Split leakage: per-packet splits can leak flow identity across train/test.
   For flow/session tasks, per-flow or stricter temporal/domain splits are the
   default expected evaluation.
 - Payload learnability is conditional: claims that encrypted payload bytes carry
   semantic patterns must specify encryption protocol/cipher, TLS version, field
-  selection, and leakage controls. Strong TLS 1.3/AES-GCM settings require extra
-  skepticism.
+  selection, and leakage controls. Separate ciphertext content from record
+  lengths, headers, handshake fields, and padding. Successful byte input alone
+  does not demonstrate learning plaintext semantics from ciphertext.
 - Metric choice matters: micro F1 and accuracy can hide poor minority-class
   performance. Macro F1, per-class recall, confusion matrices, and open-set
   metrics are often necessary.
 - Traditional baselines remain strong: RF/XGBoost/LightGBM with well-designed
   expert features can outperform deep representations under stricter evaluation.
-  Missing these baselines is a serious comparison flaw.
+  Include a task-matched simple baseline where comparison claims require it,
+  and audit its shortcuts too. Frozen probing, random initialization, and full
+  fine-tuning answer different questions about representation and final accuracy.
 - Multimodal claims need ablations: payload, packet length, direction, timing,
   graph, and session-level modalities must be independently ablated and tested
   under leakage-controlled settings.
@@ -90,11 +112,14 @@ questions and literature anchors, not as automatic verdicts.
 - Observation/target alignment is a separate validity check: identify the
   observable outer layer, trace completeness, task unit, composite labels, and
   whether a flat classifier is being compared fairly with factorized decisions.
-- Open-world, drift, and real-world claims require unseen classes or users,
-  temporal/environment transfer, calibration or rejection metrics, and an
-  explicit adaptation protocol; closed-set accuracy is insufficient.
+- Match generalization tests to the claim: unseen classes for open-set rejection;
+  later data for temporal transfer; new environments for environment transfer;
+  label-budget variation for sample efficiency. State adaptation access and
+  calibration separately. One of these evaluations does not establish the others.
 - Deployment claims must include parsing and feature-extraction cost, memory,
-  hardware, p50/p95 latency, throughput, and control/data-plane placement.
+  hardware, latency distribution, throughput, and control/data-plane placement
+  relevant to the claimed system. Include waiting, graph construction, smoothing,
+  state update, or expert review where used.
 
 ## Dataset Review Checklist
 
@@ -112,6 +137,10 @@ For every reviewed manuscript, extract a dataset table with:
 - class balance and long-tail treatment
 - duplicate removal, near-duplicate flow handling, and leakage prevention
 - whether datasets are public, private, synthetic, or partially released
+- label provenance and failure/timeout retention; group IDs before windowing,
+  resampling, augmentation, or overlapping prefixes are generated
+- filtering/selection at each stage, sample retention by class/source, and
+  whether test distribution or graph context was used during fitting
 
 Common datasets and review posture:
 
@@ -145,7 +174,7 @@ Evaluate whether the paper clearly defines:
 - novelty boundary: new representation, architecture, loss, data scale,
   evaluation protocol, or deployment system
 
-Strong objections:
+Potential validity issues; tie severity to the central claim and actual evidence:
 
 - method depends on fields unavailable in the claimed deployment scenario
 - paper claims encrypted-payload semantics without leakage controls
@@ -156,6 +185,19 @@ Strong objections:
 - “real-world” or “semantic” claims ignore observation-layer limits or label
   composition
 - "real-time" claims lack throughput, latency, memory, and hardware details
+
+For online claims, inspect preprocessing as well as model causality: full-trace
+duration normalization, future graph neighbors, unobserved termination, and
+later flows can invalidate a prefix evaluation. Bidirectional processing within
+an already closed window can be valid with its collection delay disclosed.
+Report all-candidate and prefix-reachable cohorts separately, and evaluate the
+whole stopping policy's false alarms. Capture-time replay alone does not prove
+arrival-order or real-delay behavior.
+
+For low-FPR claims, report FP counts, negative denominators, independent groups,
+fixed threshold selection, and precision at stated prevalence. Distinguish
+empirical operating points, nominal IID confidence bounds, and robustness
+certificates. Details and formulas are in the 2026 evidence reference.
 
 ## Reviewer Persona Guidance
 
@@ -175,8 +217,8 @@ the user asks otherwise:
 
 ## Review Output Requirements
 
-For traffic-classification papers, include these sections in addition to normal
-ARS review output:
+For traffic-classification papers, cover applicable findings within the requested
+ARS review format; combine overlapping sections rather than duplicating them:
 
 1. Leakage and shortcut-learning audit.
 2. Dataset/encryption validity audit.
@@ -189,7 +231,8 @@ ARS review output:
 
 Use verdict language conservatively:
 
-- `Major flaw` when reported performance may be explained by leakage or SII.
+- `Major flaw` when identified leakage or unavailable information materially
+  undermines the central result; mere suspicion calls for verification.
 - `Major revision` when the contribution may be valid but needs stricter splits,
   stronger baselines, or missing ablations.
 - `Minor revision` for presentation, missing details, or limited extra checks
@@ -230,7 +273,9 @@ Suggested research-gap families:
 
 ## Experiment Planning Guidance
 
-For `experiment-agent`, prefer experiments that isolate confounders:
+For `experiment-agent`, choose experiments that discriminate the current
+scientific claim from its strongest alternative explanation. This menu does not
+require every experiment for every paper:
 
 - per-packet vs per-flow vs temporal/environment split comparison
 - SII masking and header-field ablation
@@ -247,7 +292,8 @@ For `experiment-agent`, prefer experiments that isolate confounders:
 
 ## Personal Knowledge Base Integration
 
-If the user provides or references the local knowledge base, first read:
+If the user provides or references the local knowledge base, use its AGENTS.md
+and registry to locate the relevant note and source. Select relevant context from:
 
 - `00-dashboard/project-overview.md`
 - `00-dashboard/research-map.md`
@@ -259,5 +305,14 @@ If the user provides or references the local knowledge base, first read:
 - `09-claims/contradictions.md`
 
 For a specific cited paper, prefer its structured note under `03-paper-notes/`
-before reading full parsed markdown or PDFs. Do not ingest or quote full PDFs
-unless the user explicitly asks for source-level verification.
+for navigation, then inspect the parsed text or PDF passages supporting important
+mechanisms, numbers, and scope. L3 labels and coverage reports are not proof that
+every claim has been audited. Inspect a rendered PDF when extraction affects a
+necessary table, formula, or figure. Keep unknowns explicit and retain the
+source's version and locator.
+
+Use Claims and research fronts as candidate syntheses. Do not import venue/time
+weights as probabilities of scientific truth, or count dependent papers as
+independent support. Do not modify consensus records during ordinary skill use.
+Respect personal-paper isolation; only explicitly promoted public papers may
+enter this evidence map through their standard-paper records.
